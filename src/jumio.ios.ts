@@ -185,6 +185,13 @@ class NsjumiopluginDelegateImpl extends NSObject implements NetverifyViewControl
             this._vc.dismissViewControllerAnimatedCompletion(true, null);
             this._owner.get().netverifyViewController.destroy();
         }
+
+        /*if (error) {
+            Utils.error(error.code, error.message);
+            this._owner.get().finishInitWithError(error)
+            this._vc.dismissViewControllerAnimatedCompletion(true, null);
+            this._owner.get().netverifyViewController.destroy();
+        }*/
     }
 
     netverifyViewControllerDidFinishWithDocumentDataScanReferenceAccountIdAuthenticationResult(netverifyViewController: NetverifyViewController, documentData: NetverifyDocumentData, scanReference: string, accountId: string, authenticationResult: boolean): void {

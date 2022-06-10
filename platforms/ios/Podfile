@@ -1,0 +1,13 @@
+use_frameworks! # Required for proper framework handling
+platform :ios, '10.0'
+pod 'JumioMobileSDK', '~>3.9.5' # Use ID Verification, Authentication, Document Verification and BAM Checkout together in your app
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if ['iProov', 'Socket.IO-Client-Swift', 'Starscream'].include? target.name
+      target.build_configurations.each do |config|
+          config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+      end
+    end
+  end
+end
